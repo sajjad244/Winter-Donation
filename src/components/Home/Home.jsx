@@ -10,9 +10,10 @@ const Home = () => {
   return (
     <div className="mt-16">
       <Banner></Banner>
-      <h1 className="text-center font-bold text-4xl my-20 text-blue-900">
+      <h1 className="text-center font-bold text-4xl my-24 text-blue-900">
         <i>Joining Our Mission is the most impactful way to give</i>
       </h1>
+      <hr class="my-4 border-gray-300 w-2/3 mx-auto" />
       <About></About>
       <HowItWorks></HowItWorks>
       <FeaturedDonors></FeaturedDonors>
