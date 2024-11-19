@@ -13,10 +13,13 @@ const Home = () => {
       <h1 className="text-center font-bold text-4xl my-24 text-blue-900">
         <i>Joining Our Mission is the most impactful way to give</i>
       </h1>
-      <hr class="my-4 border-gray-300 w-2/3 mx-auto" />
+      <hr className="my-4 border-gray-300 w-2/3 mx-auto" />
       <About></About>
+      <hr className="my-4 border-gray-300 w-2/3 mx-auto" />
       <HowItWorks></HowItWorks>
+      <hr className="my-4 border-gray-300 w-2/3 mx-auto" />
       <FeaturedDonors></FeaturedDonors>
+      <hr className="my-4 border-gray-300 w-2/3 mx-auto" />
       <Faq></Faq>
       {/* footer */}
       <Footer></Footer>

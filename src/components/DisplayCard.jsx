@@ -1,7 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const DisplayCard = ({singleCard}) => {
-  const {image, title, description, division} = singleCard;
+  const {image, title, description, division, id} = singleCard;
 
   return (
     <div>
@@ -18,7 +19,12 @@ const DisplayCard = ({singleCard}) => {
             </span>
           </div>
           <div className="card-actions justify-end mt-5">
-            <button className="btn bg-purple-700 text-white">Donate Now</button>
+            <Link
+              to={`/donation/card/id/${id}`}
+              className="btn bg-purple-700 text-white"
+            >
+              Donate Now
+            </Link>
           </div>
         </div>
       </div>

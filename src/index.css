@@ -6,3 +6,6 @@
   color: white !important;
   background-color: blueviolet !important;
 }
+body {
+  overflow-y: scroll;
+}

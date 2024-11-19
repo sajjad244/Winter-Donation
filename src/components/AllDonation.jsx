@@ -1,7 +1,7 @@
 import React from "react";
 
 const AllDonation = () => {
-  return <div>yes</div>;
+  return <div>hello from alll donaaa</div>;
 };
 
 export default AllDonation;

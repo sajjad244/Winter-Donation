@@ -1,5 +1,6 @@
 // src/components/About.js
 import React from "react";
+import {Link} from "react-router-dom";
 
 const About = () => {
   return (
@@ -30,7 +31,9 @@ const About = () => {
               You can make a big difference in the lives of those who need it
               most. Join us in spreading warmth this winter.
             </p>
-            <button className="btn btn-primary">Donate Now</button>
+            <Link to="/donation" className="btn bg-purple-600 text-white">
+              Donate Now
+            </Link>
           </div>
         </div>
       </div>

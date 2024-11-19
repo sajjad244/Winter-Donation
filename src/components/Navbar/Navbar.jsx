@@ -1,5 +1,6 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
+import "animate.css";
 
 const Navbar = () => {
   const links = (
@@ -48,7 +49,7 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="btn btn-ghost text-xl text-blue-800 font-bold"
+            className="btn btn-ghost text-xl text-blue-800 font-bold animate__animated animate__heartBeat"
           >
             Winter Donation
           </Link>
@@ -59,7 +60,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <Link to="/login" className="btn">
+            Login
+          </Link>
         </div>
       </div>
     </div>

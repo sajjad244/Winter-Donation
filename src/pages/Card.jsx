@@ -17,12 +17,10 @@ const Card = () => {
     }
   }, [card, division]);
 
-  console.log(category);
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5 p-3">
       {category.map((singleCard) => (
-        <DisplayCard singleCard={singleCard}></DisplayCard>
+        <DisplayCard key={singleCard.id} singleCard={singleCard}></DisplayCard>
       ))}
     </div>
   );
