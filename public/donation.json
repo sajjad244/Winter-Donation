@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Winter Clothing Drive - Dhaka",
+    "image": "https://i.ibb.co.com/NWRJyS0/ph-61993-242129.jpg",
+    "description": "Collecting warm clothes for underprivileged families in Dhaka.",
+    "status": "Ongoing",
+    "contactInfo": "Phone: +880123456789 | Email: dhaka@winterdrive.org",
+    "division": "Dhaka"
+  },
+  {
+    "id": 2,
+    "title": "Winter Warmth Campaign - Chattogram",
+    "image": "https://i.ibb.co.com/RDJQbWC/RS211506-DSC05093-scaled.jpg",
+    "description": "Providing winter clothing to children and elderly in Chattogram hill tracts.",
+    "status": "Ongoing",
+    "contactInfo": "Phone: +880987654321 | Email: chattogram@winterdrive.org",
+    "division": "Chattogram"
+  },
+  {
+    "id": 3,
+    "title": "Bundle of Warmth - Barishal",
+    "image": "https://i.ibb.co.com/xgxgzFk/Sweater-03.jpg",
+    "description": "Helping fishermen and low-income groups in Barishal with winter gear.",
+    "status": "Upcoming",
+    "contactInfo": "Phone: +880776655443 | Email: barishal@winterdrive.org",
+    "division": "Barishal"
+  },
+  {
+    "id": 4,
+    "title": "Winter Warmth Campaign - Dhaka",
+    "image": "https://i.ibb.co.com/1Xb183t/9.jpg",
+    "description": "Distributing blankets and woolen clothes in rural areas near Dhaka.",
+    "status": "Completed",
+    "contactInfo": "Phone: +880112233445 | Email: dhakahelp@winterdrive.org",
+    "division": "Dhaka"
+  },
+  {
+    "id": 5,
+    "title": "Warm Smiles - Chattogram",
+    "image": "https://i.ibb.co.com/1XDJ0cy/8.webp",
+    "description": "Providing jackets and scarves to families in Chattogram city slums.",
+    "status": "Ongoing",
+    "contactInfo": "Phone: +880998877665 | Email: smiles@winterdrive.org",
+    "division": "Chattogram"
+  },
+  {
+    "id": 6,
+    "title": "Safe Winter Nights - Barishal",
+    "image": "https://i.ibb.co.com/BZzGgQ1/7.webp",
+    "description": "Distributing blankets and sweaters in cold-prone areas of Barishal.",
+    "status": "Upcoming",
+    "contactInfo": "Phone: +880112244567 | Email: barishalsafe@winterdrive.org",
+    "division": "Barishal"
+  },
+  {
+    "id": 7,
+    "title": "Shelter & Warmth - Dhaka",
+    "image": "https://i.ibb.co.com/WHFp4jd/6.jpg",
+    "description": "Helping street dwellers in Dhaka with winter clothes and shelters.",
+    "status": "Ongoing",
+    "contactInfo": "Phone: +880123456789 | Email: shelter@winterdrive.org",
+    "division": "Dhaka"
+  },
+  {
+    "id": 8,
+    "title": "Woolens for All - Chattogram",
+    "image": "https://i.ibb.co.com/M8xXgj2/5.jpg",
+    "description": "Providing woolen caps and gloves to low-income families in Chattogram.",
+    "status": "Completed",
+    "contactInfo": "Phone: +880554433221 | Email: woolens@winterdrive.org",
+    "division": "Chattogram"
+  },
+  {
+    "id": 9,
+    "title": "Cold Relief - Barishal",
+    "image": "https://i.ibb.co.com/k0NnjVs/1.jpg",
+    "description": "Assisting fishermen in Barishal with warm clothing and essentials.",
+    "status": "Upcoming",
+    "contactInfo": "Phone: +880334455667 | Email: coldrelief@winterdrive.org",
+    "division": "Barishal"
+  },
+  {
+    "id": 10,
+    "title": "Warm Hearts - Dhaka",
+    "image": "https://i.ibb.co.com/BLDRMpg/2.jpg",
+    "description": "Collecting and distributing scarves and gloves for the elderly in Dhaka.",
+    "status": "Ongoing",
+    "contactInfo": "Phone: +880776655443 | Email: warmhearts@winterdrive.org",
+    "division": "Dhaka"
+  },
+  {
+    "id": 11,
+    "title": "Cozy Winters - Chattogram",
+    "image": "https://i.ibb.co.com/h2MGf60/3.jpg",
+    "description": "Distributing thermal wear and blankets in Chattogram's remote areas.",
+    "status": "Ongoing",
+    "contactInfo": "Phone: +880998877665 | Email: cozy@winterdrive.org",
+    "division": "Chattogram"
+  },
+  {
+    "id": 12,
+    "title": "Warmth Beyond Borders - Barishal",
+    "image": "https://i.ibb.co.com/WgHnXFg/4.jpg",
+    "description": "Helping families along riverbanks in Barishal with warm clothes.",
+    "status": "Completed",
+    "contactInfo": "Phone: +880998877665 | Email: beyondborders@winterdrive.org",
+    "division": "Barishal"
+  }
+]

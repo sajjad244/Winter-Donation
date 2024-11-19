@@ -9,11 +9,9 @@ const HomeLayout = () => {
       {/* navbar */}
       <Navbar></Navbar>
       {/* outlet */}
-      <div className="min-h-[calc(100vh-300px)] py-12">
+      <div>
         <Outlet></Outlet>
       </div>
-      {/* footer */}
-      <Footer></Footer>
     </div>
   );
 };
