@@ -1,15 +1,34 @@
-import React from "react";
+import React, {useContext} from "react";
 import {FaGoogle} from "react-icons/fa";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../../provider/AuthProvider";
 
 const Login = () => {
+  const {userLogIn, setUser} = useContext(AuthContext);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    //? get from data
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    // ! login user
+    userLogIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
+  };
+
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold text-center text-blue-600 mb-4">
-          User Login
+          Login Your Account
         </h2>
-        <form>
+        <form onSubmit={handleLogin}>
           {/* Email Field */}
           <div className="form-control mb-4">
             <label className="label">
@@ -18,7 +37,6 @@ const Login = () => {
             <input
               type="email"
               name="email"
-              id="email"
               placeholder="Enter your email"
               className="input input-bordered w-full"
               required
@@ -33,7 +51,6 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              id="password"
               placeholder="Enter your password"
               className="input input-bordered w-full"
               required
@@ -71,8 +88,8 @@ const Login = () => {
         <div className="text-center">
           <span className="text-sm">Don't have an account? </span>
           <Link
-            to="/register"
-            className="text-sm text-blue-500 hover:underline"
+            to="/auth/registration"
+            className="text-sm text-red-600 font-semibold hover:underline"
           >
             Register Here
           </Link>

@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Link, NavLink} from "react-router-dom";
 import "animate.css";
+import loginImg from "../../assets/user.png";
+import {AuthContext} from "../../provider/AuthProvider";
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
+
   const links = (
     <>
       <li>
@@ -19,6 +23,7 @@ const Navbar = () => {
       </li>
     </>
   );
+
   return (
     <div>
       <div className="navbar  bg-base-100  rounded-sm">
@@ -53,16 +58,28 @@ const Navbar = () => {
           >
             Winter Donation
           </Link>
+          {/*  */}
+          {user && user.email}
+          {/*  */}
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-2 text-blue-900 font-semibold">
             {links}
           </ul>
         </div>
-        <div className="navbar-end">
-          <Link to="/login" className="btn">
-            Login
-          </Link>
+        <div className="navbar-end space-x-3">
+          <div>
+            <img src={loginImg} alt="" />
+          </div>
+          {user && user?.email ? (
+            <button onClick={logOut} className="btn bg-red-500 text-white">
+              Logout
+            </button>
+          ) : (
+            <Link to="/auth/login" className="btn bg-purple-600 text-white">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

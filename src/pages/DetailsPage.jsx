@@ -1,11 +1,10 @@
 import {useEffect, useState} from "react";
-import {useLoaderData, useNavigate, useParams} from "react-router-dom";
+import {useLoaderData, useParams} from "react-router-dom";
 import toast, {Toaster} from "react-hot-toast";
 
 const DetailsPage = () => {
   const data = useLoaderData();
   const {id} = useParams();
-  const navigate = useNavigate();
 
   const [details, setDetails] = useState({});
   const [formData, setFormData] = useState({

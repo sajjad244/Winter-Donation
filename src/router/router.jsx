@@ -6,6 +6,8 @@ import Card from "../pages/Card";
 import ErrorPage from "../pages/ErrorPage";
 import Login from "../components/Login/Login";
 import DetailsPage from "../pages/DetailsPage";
+import Registration from "../components/Registration/Registration";
+import AuthLayout from "../layout/AuthLayout";
 
 const router = createBrowserRouter([
   {
@@ -40,8 +42,18 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "login",
-        element: <Login></Login>,
+        path: "auth",
+        element: <AuthLayout></AuthLayout>,
+        children: [
+          {
+            path: "/auth/login",
+            element: <Login></Login>,
+          },
+          {
+            path: "/auth/registration",
+            element: <Registration></Registration>,
+          },
+        ],
       },
     ],
   },
