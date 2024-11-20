@@ -1,11 +1,15 @@
 import React, {useContext} from "react";
 import {FaGoogle} from "react-icons/fa";
-import {Link} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Registration = () => {
   // ! createNewUser
   const {createNewUser, setUser} = useContext(AuthContext);
+  //! for navigate path
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,13 +25,12 @@ const Registration = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        console.log(user);
+        navigate(location?.state ? location.state : "/");
+        toast.success("Thank you! For your Registration");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        // ..
       });
   };
 

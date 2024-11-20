@@ -8,6 +8,7 @@ import Login from "../components/Login/Login";
 import DetailsPage from "../pages/DetailsPage";
 import Registration from "../components/Registration/Registration";
 import AuthLayout from "../layout/AuthLayout";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,11 @@ const router = createBrowserRouter([
           },
           {
             path: "card/id/:id",
-            element: <DetailsPage></DetailsPage>,
+            element: (
+              <PrivetRoute>
+                <DetailsPage></DetailsPage>
+              </PrivetRoute>
+            ),
             loader: () => fetch("/donation.json"),
           },
         ],

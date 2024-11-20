@@ -1,10 +1,14 @@
 import React, {useContext} from "react";
 import {FaGoogle} from "react-icons/fa";
-import {Link} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {userLogIn, setUser} = useContext(AuthContext);
+  //! for navigate path
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,6 +20,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        navigate(location?.state ? location.state : "/");
+        toast.success("Thank you! For your Login");
       })
       .catch((error) => {
         alert(error.code);
