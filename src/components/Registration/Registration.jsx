@@ -150,7 +150,9 @@ const Registration = () => {
 
             {/* Login Button */}
             <div className="form-control mb-4">
-              <button className="btn btn-primary w-full">Registration</button>
+              <button className="btn bg-purple-600 text-white w-full">
+                Registration
+              </button>
             </div>
           </form>
 
