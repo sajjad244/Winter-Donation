@@ -1,11 +1,12 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {FaGoogle} from "react-icons/fa";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const {userLogIn, setUser} = useContext(AuthContext);
+  const {userLogIn, setUser, googleLogIn} = useContext(AuthContext);
+  const [error, setError] = useState({});
   //! for navigate path
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,8 +24,24 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
         toast.success("Thank you! For your Login");
       })
-      .catch((error) => {
-        alert(error.code);
+      .catch((err) => {
+        setError({...error, login: err.code});
+      });
+  };
+
+  // ! google login
+  const handleGoogleLogin = () => {
+    googleLogIn()
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        navigate(location?.state || "/");
+        toast.success(
+          `Welcome ${user.displayName}! You have successfully logged in.`
+        );
+      })
+      .catch((err) => {
+        toast.error(`Google Login Failed: ${err.message}`);
       });
   };
 
@@ -65,6 +82,11 @@ const Login = () => {
 
           {/* Forget Password */}
           <div className="text-right mb-4">
+            {error.login && (
+              <label className="label text-sm text-red-600">
+                {error.login}
+              </label>
+            )}
             <Link
               to="/forgot-password"
               className="text-sm text-blue-500 hover:underline"
@@ -84,7 +106,10 @@ const Login = () => {
 
         {/* Social Login */}
         <div className="form-control mb-4">
-          <button className="btn btn-outline  w-full flex items-center justify-center border-white">
+          <button
+            onClick={handleGoogleLogin}
+            className="btn btn-outline  w-full flex items-center justify-center border-white"
+          >
             <FaGoogle className="w-5 h-5 mr-2 text-green-500" /> Continue with
             Google
           </button>

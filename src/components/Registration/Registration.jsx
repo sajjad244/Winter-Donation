@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {FaGoogle} from "react-icons/fa";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../provider/AuthProvider";
@@ -6,20 +6,31 @@ import toast from "react-hot-toast";
 
 const Registration = () => {
   // ! createNewUser
-  const {createNewUser, setUser} = useContext(AuthContext);
+  const {createNewUser, setUser, googleLogIn} = useContext(AuthContext);
+  const [error, setError] = useState("");
   //! for navigate path
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     //? get from data
     const form = new FormData(e.target);
     const name = form.get("name");
     const photo = form.get("photo");
     const email = form.get("email");
     const password = form.get("password");
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setError(
+        "Password must have at least 6 characters, including uppercase and lowercase letters."
+      );
+      return;
+    } else {
+      setError("");
+    }
+
     // ! createNewUser
     createNewUser(email, password)
       .then((result) => {
@@ -31,6 +42,23 @@ const Registration = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+
+  // ! google login
+  const handleGoogleLogin = () => {
+    googleLogIn()
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        navigate(location?.state || "/");
+        toast.success(
+          `Welcome ${user.displayName}! You have successfully logged in.`
+        );
+      })
+      .catch((err) => {
+        toast.error(`Google Login Failed: ${err.message}`);
       });
   };
 
@@ -95,6 +123,8 @@ const Registration = () => {
                 className="input input-bordered w-full"
                 required
               />
+              {/* Show Password Error */}
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
             </div>
 
             {/* Forget Password */}
@@ -118,7 +148,10 @@ const Registration = () => {
 
           {/* Social Login */}
           <div className="form-control mb-4">
-            <button className="btn btn-outline  w-full flex items-center justify-center border-white">
+            <button
+              onClick={handleGoogleLogin}
+              className="btn btn-outline  w-full flex items-center justify-center border-white"
+            >
               <FaGoogle className="w-5 h-5 mr-2 text-green-500" /> Continue with
               Google
             </button>
