@@ -54,7 +54,7 @@ const HowItWorks = () => {
           <p className="text-lg text-gray-700 mb-6 font-semibold">
             We have collection points in the following locations:
           </p>
-          <ul className=" pl-8 text-gray-700 text-sm font-semibold">
+          <ul className=" pl-8 text-gray-700  ">
             <li>Dhaka - XYZ Shopping Mall</li>
             <li>Chittagong - ABC Community Center</li>
             <li>Khulna - DEF Donation Hub</li>
@@ -70,7 +70,7 @@ const HowItWorks = () => {
           <p className="text-lg text-gray-700 mb-6 font-semibold">
             We are supporting the following divisions for donations:
           </p>
-          <ul className=" pl-8 text-gray-700 text-sm font-semibold">
+          <ul className=" pl-8 text-gray-700  ">
             <li>Dhaka Division</li>
             <li>Chittagong Division</li>
             <li>Khulna Division</li>
