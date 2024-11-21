@@ -10,11 +10,11 @@ Winter Donation is a web application designed to facilitate the donation of wint
 
 ## Live URL
 
-[Live Website Link](#)
+[ https://winter-donation-b573a.web.app/ ](#)
 
 assignment variant is: Assignment-09-001
 
-[https://docs.google.com/document/d/1f3tbugV_D0CATzbteer6reXLVWmtoAIIX4MaffV48kI/edit?tab=t.0](#)
+[ https://docs.google.com/document/d/1f3tbugV_D0CATzbteer6reXLVWmtoAIIX4MaffV48kI/edit?tab=t.0 ](#)
 
 ## Key Features
 
