@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {FaGoogle} from "react-icons/fa";
+import {FaEye, FaEyeSlash, FaGoogle} from "react-icons/fa";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 const Login = () => {
   const {userLogIn, setUser, googleLogIn} = useContext(AuthContext);
   const [error, setError] = useState({});
+  //! show password eye
+  const [showPassword, setShowPassword] = useState(false);
   //! for navigate path
   const location = useLocation();
   const navigate = useNavigate();
@@ -67,17 +69,27 @@ const Login = () => {
           </div>
 
           {/* Password Field */}
-          <div className="form-control mb-4">
+          <div className="form-control mb-4 relative">
             <label className="label">
               <span className="label-text font-medium">Password</span>
             </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
               className="input input-bordered w-full"
               required
             />
+            {/* eye */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setShowPassword(!showPassword);
+              }}
+              className="btn btn-xs absolute right-4 top-12 "
+            >
+              {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+            </button>
           </div>
 
           {/* Forget Password */}
@@ -88,7 +100,7 @@ const Login = () => {
               </label>
             )}
             <Link
-              to="/forgot-password"
+              to="/auth/forgetPassword"
               className="text-sm text-blue-500 hover:underline"
             >
               Forgot Password?

@@ -4,9 +4,11 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
@@ -16,6 +18,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
+
   // ? for loading
   const [loading, setLoading] = useState(true);
 
@@ -43,6 +46,18 @@ const AuthProvider = ({children}) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  // ! Update user profile
+
+  const updateUserProfile = (updatedData) => {
+    return updateProfile(auth.currentUser, updatedData);
+  };
+
+  // ! Reset password
+  const resetPassword = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
+  };
+
   //? ContextValue___Share__
   const authInfo = {
     user,
@@ -52,6 +67,8 @@ const AuthProvider = ({children}) => {
     userLogIn,
     loading,
     googleLogIn,
+    updateUserProfile,
+    resetPassword,
   };
 
   // ! onAuthStateChange or observer fun || setState

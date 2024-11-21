@@ -9,6 +9,9 @@ import DetailsPage from "../pages/DetailsPage";
 import Registration from "../components/Registration/Registration";
 import AuthLayout from "../layout/AuthLayout";
 import PrivetRoute from "./PrivetRoute";
+import ForgetPassword from "../components/ForgetPassword ";
+import Dashboard from "../components/Dashboard/Dashboard";
+import UpdateProfile from "../pages/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +61,23 @@ const router = createBrowserRouter([
             path: "/auth/registration",
             element: <Registration></Registration>,
           },
+          {
+            path: "/auth/forgetPassword",
+            element: <ForgetPassword></ForgetPassword>,
+          },
         ],
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivetRoute>
+            <Dashboard></Dashboard>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/dashboard/updateProfile",
+        element: <UpdateProfile></UpdateProfile>,
       },
     ],
   },

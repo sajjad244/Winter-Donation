@@ -58,9 +58,6 @@ const Navbar = () => {
           >
             Winter Donation
           </Link>
-          {/*  */}
-          {user && user.email}
-          {/*  */}
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 space-x-2 text-blue-900 font-semibold">
@@ -69,7 +66,17 @@ const Navbar = () => {
         </div>
         <div className="navbar-end space-x-3">
           <div>
-            <img src={loginImg} alt="" />
+            {user && user?.email ? (
+              <div>
+                <img
+                  className="w-10 h-10 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </div>
+            ) : (
+              <img src={loginImg} alt="" />
+            )}
           </div>
           {user && user?.email ? (
             <button onClick={logOut} className="btn bg-red-500 text-white">

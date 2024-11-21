@@ -1,13 +1,17 @@
 import React, {useContext, useState} from "react";
-import {FaGoogle} from "react-icons/fa";
+import {FaEye, FaEyeSlash, FaGoogle} from "react-icons/fa";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Registration = () => {
   // ! createNewUser
-  const {createNewUser, setUser, googleLogIn} = useContext(AuthContext);
+  const {createNewUser, setUser, googleLogIn, updateUserProfile} =
+    useContext(AuthContext);
   const [error, setError] = useState("");
+  //! show password eye
+  const [showPassword, setShowPassword] = useState(false);
+
   //! for navigate path
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,6 +41,13 @@ const Registration = () => {
         const user = result.user;
         setUser(user);
         navigate(location?.state ? location.state : "/");
+        updateUserProfile({displayName: name, photoURL: photo})
+          .then(() => {
+            navigate("/");
+          })
+          .catch((err) => {
+            alert(err.code);
+          });
         toast.success("Thank you! For your Registration");
       })
       .catch((error) => {
@@ -112,29 +123,29 @@ const Registration = () => {
             </div>
 
             {/* Password Field */}
-            <div className="form-control mb-4">
+            <div className="form-control mb-4 relative">
               <label className="label">
                 <span className="label-text font-medium">Password</span>
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
                 className="input input-bordered w-full"
                 required
               />
+              {/* eye */}
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowPassword(!showPassword);
+                }}
+                className="btn btn-xs absolute right-4 top-12 "
+              >
+                {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+              </button>
               {/* Show Password Error */}
               {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-            </div>
-
-            {/* Forget Password */}
-            <div className="text-right mb-4">
-              <Link
-                to="/forgot-password"
-                className="text-sm text-blue-500 hover:underline"
-              >
-                Forgot Password?
-              </Link>
             </div>
 
             {/* Login Button */}
